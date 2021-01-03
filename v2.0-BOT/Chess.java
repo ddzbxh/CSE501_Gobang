@@ -20,8 +20,8 @@ public class Chess{
 		this.a = 1;
 		this.b = 1;
 		this.c = 1;
-		this.xx = 8;
-		this.yy = 8;
+		this.xx = 7;
+		this.yy = 7;
 		this.size = 15;
 		this.mainList = new int[this.size][this.size];
 		for (int i = 0; i < this.size; i++) {
@@ -112,7 +112,7 @@ public class Chess{
 	}	}
 	
 	public void printBoard() {
-		for (int i = 0; i < this.size; i++) {
+		for (int i = 1; i < this.size+1; i++) {
 			if (i <= 9) {
 				System.out.print(i+" ");
 			}else {
@@ -120,13 +120,13 @@ public class Chess{
 			}
 			for (int j = 0; j < this.size; j++) {
 				System.out.print(this.space);
-				if (this.mainList[i][j] == 255) {
+				if (this.mainList[i-1][j] == 255) {
 					System.out.print("◙");
 				}
-				if (this.mainList[i][j] == 128) {
+				if (this.mainList[i-1][j] == 128) {
 					System.out.print("⊡");
 				}
-				if (this.mainList[i][j] == 1) {
+				if (this.mainList[i-1][j] == 1) {
 					System.out.print("◌");
 				}
 				System.out.print(this.space);
@@ -140,7 +140,7 @@ public class Chess{
 			System.out.print("\n");
 			for (int i = 0; i < 30; i++) {System.out.print("*");}
 			System.out.print("\n");
-			for (int i = 0; i < 10; i++) {System.out.print("-");}
+			for (int i = 0; i < 10; i++) {System.out.print(" ");}
 			System.out.println(this.winner);
 			for (int i = 0; i < 30; i++) {System.out.print("*");}
 			System.out.print("\n");
@@ -150,7 +150,7 @@ public class Chess{
 	}	}
 	
 	public void playOneStep() {
-		if (this.term % 2 == 1) {
+		if (this.term % 2 == 0) {
 			while (true) {
 				for (int i = 0; i < this.size; i++) {
 					for (int j = 0; j < this.size; j++) {
@@ -158,11 +158,11 @@ public class Chess{
 							if (this.mainList[i][j] == 128) {
 								if (this.mainList[i][j+1] == 128) {
 									if (this.mainList[i][j+2] == 128) {
-										if (this.mainList[i][j+3] == 1) {
+										if (this.mainList[i][j+3] == 1 && this.c== 1) {
 											this.mainList[i][j+3] = 255;
 											this.c = 0;
 											break;
-										}else if (this.mainList[i][j-1] == 1) {
+										}else if (this.mainList[i][j-1] == 1 && this.c== 1) {
 											this.mainList[i][j-1] = 255;
 											this.c = 0;
 											break;
@@ -172,11 +172,11 @@ public class Chess{
 							if (this.mainList[i][j] == 128) {
 								if (this.mainList[i+1][j] == 128) {
 									if (this.mainList[i+2][j] == 128) {
-										if (this.mainList[i+3][j] == 1) {
+										if (this.mainList[i+3][j] == 1 && this.c== 1) {
 											this.mainList[i+3][j] = 255;
 											this.c = 0;
 											break;
-										}else if (this.mainList[i-1][j] == 1) {
+										}else if (this.mainList[i-1][j] == 1 && this.c== 1) {
 											this.mainList[i-1][j] = 255;
 											this.c = 0;
 											break;
@@ -186,11 +186,11 @@ public class Chess{
 							if (this.mainList[i][j] == 128) {
 								if (this.mainList[i+1][j+1] == 128) {
 									if (this.mainList[i+2][j+2] == 128) {
-										if (this.mainList[i+3][j+3] == 1) {
+										if (this.mainList[i+3][j+3] == 1 && this.c== 1) {
 											this.mainList[i+3][j+3] = 255;
 											this.c = 0;
 											break;
-										}else if (this.mainList[i-1][j-1] == 1) {
+										}else if (this.mainList[i-1][j-1] == 1 && this.c== 1) {
 											this.mainList[i-1][j-1] = 255;
 											this.c = 0;
 											break;
@@ -200,11 +200,11 @@ public class Chess{
 							if (this.mainList[i][j] == 128) {
 								if (this.mainList[i+1][j-1] == 128) {
 									if (this.mainList[i+2][j-2] == 128) {
-										if (this.mainList[i+3][j-3] == 1) {
+										if (this.mainList[i+3][j-3] == 1 && this.c== 1) {
 											this.mainList[i+3][j-3] = 255;
 											this.c = 0;
 											break;
-										}else if (this.mainList[i-1][j+1] == 1) {
+										}else if (this.mainList[i-1][j+1] == 1 && this.c== 1) {
 											this.mainList[i-1][j+1] = 255;
 											this.c = 0;
 											break;
@@ -214,11 +214,11 @@ public class Chess{
 							if (this.mainList[i][j] == 128) {
 								if (this.mainList[i-1][j-1] == 128) {
 									if (this.mainList[i-2][j-2] == 128) {
-										if (this.mainList[i-3][j-3] == 1) {
+										if (this.mainList[i-3][j-3] == 1 && this.c== 1) {
 											this.mainList[i-3][j-3] = 255;
 											this.c = 0;
 											break;
-										}else if (this.mainList[i+1][j+1] == 1) {
+										}else if (this.mainList[i+1][j+1] == 1 && this.c== 1) {
 											this.mainList[i+1][j+1] = 255;
 											this.c = 0;
 											break;
@@ -228,11 +228,95 @@ public class Chess{
 							if (this.mainList[i][j] == 128) {
 								if (this.mainList[i-1][j+1] == 128) {
 									if (this.mainList[i-2][j+2] == 128) {
-										if (this.mainList[i-3][j+3] == 1) {
+										if (this.mainList[i-3][j+3] == 1 && this.c== 1) {
 											this.mainList[i-3][j+3] = 255;
 											this.c = 0;
 											break;
-										}else if (this.mainList[i+1][j-1] == 1) {
+										}else if (this.mainList[i+1][j-1] == 1 && this.c== 1) {
+											this.mainList[i+1][j-1] = 255;
+											this.c = 0;
+											break;
+							}	}	}	}
+						}catch(Exception e){}
+						try {
+							if (this.mainList[i][j] == 255) {
+								if (this.mainList[i][j+1] == 255) {
+									if (this.mainList[i][j+2] == 255) {
+										if (this.mainList[i][j+3] == 1 && this.c== 1) {
+											this.mainList[i][j+3] = 255;
+											this.c = 0;
+											break;
+										}else if (this.mainList[i][j-1] == 1 && this.c== 1) {
+											this.mainList[i][j-1] = 255;
+											this.c = 0;
+											break;
+							}	}	}	}
+						}catch(Exception e){}
+						try {
+							if (this.mainList[i][j] == 255) {
+								if (this.mainList[i+1][j] == 255) {
+									if (this.mainList[i+2][j] == 255) {
+										if (this.mainList[i+3][j] == 1 && this.c== 1) {
+											this.mainList[i+3][j] = 255;
+											this.c = 0;
+											break;
+										}else if (this.mainList[i-1][j] == 1 && this.c== 1) {
+											this.mainList[i-1][j] = 255;
+											this.c = 0;
+											break;
+							}	}	}	}
+						}catch(Exception e){}
+						try {
+							if (this.mainList[i][j] == 255) {
+								if (this.mainList[i+1][j+1] == 255) {
+									if (this.mainList[i+2][j+2] == 255) {
+										if (this.mainList[i+3][j+3] == 1 && this.c== 1) {
+											this.mainList[i+3][j+3] = 255;
+											this.c = 0;
+											break;
+										}else if (this.mainList[i-1][j-1] == 1 && this.c== 1) {
+											this.mainList[i-1][j-1] = 255;
+											this.c = 0;
+											break;
+							}	}	}	}
+						}catch(Exception e){}
+						try {
+							if (this.mainList[i][j] == 255) {
+								if (this.mainList[i+1][j-1] == 255) {
+									if (this.mainList[i+2][j-2] == 255) {
+										if (this.mainList[i+3][j-3] == 1 && this.c== 1) {
+											this.mainList[i+3][j-3] = 255;
+											this.c = 0;
+											break;
+										}else if (this.mainList[i-1][j+1] == 1 && this.c== 1) {
+											this.mainList[i-1][j+1] = 255;
+											this.c = 0;
+											break;
+							}	}	}	}
+						}catch(Exception e){}
+						try {
+							if (this.mainList[i][j] == 255) {
+								if (this.mainList[i-1][j-1] == 255) {
+									if (this.mainList[i-2][j-2] == 255) {
+										if (this.mainList[i-3][j-3] == 1 && this.c== 1) {
+											this.mainList[i-3][j-3] = 255;
+											this.c = 0;
+											break;
+										}else if (this.mainList[i+1][j+1] == 1 && this.c== 1) {
+											this.mainList[i+1][j+1] = 255;
+											this.c = 0;
+											break;
+							}	}	}	}
+						}catch(Exception e){}
+						try {
+							if (this.mainList[i][j] == 255) {
+								if (this.mainList[i-1][j+1] == 255) {
+									if (this.mainList[i-2][j+2] == 255) {
+										if (this.mainList[i-3][j+3] == 1 && this.c== 1) {
+											this.mainList[i-3][j+3] = 255;
+											this.c = 0;
+											break;
+										}else if (this.mainList[i+1][j-1] == 1 && this.c== 1) {
 											this.mainList[i+1][j-1] = 255;
 											this.c = 0;
 											break;
@@ -324,8 +408,8 @@ public class Chess{
 	}	}	}	}
 	
 	public void testWin() {
-		for (int i = 0; i < this.size; i++) {
-			for (int j = 0; i < this.size; i++) {
+		for (int i = 0; i < this.size-1; i++) {
+			for (int j = 0; j < this.size-1; j++) {
 				try {
 					if (this.mainList[i][j] != 1) {
 						if (this.mainList[i][j] == this.mainList[i][j+1]) {
