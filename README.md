@@ -1,4 +1,4 @@
-# CSE501_ProjectFinal
+# CSE501_ProjectFinal_BOTGobang
 
 此Java版为Python移植版，完整版见Python。
 
