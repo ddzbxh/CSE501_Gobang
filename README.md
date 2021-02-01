@@ -1,5 +1,7 @@
 # CSE501_ProjectFinal_Gobang
 
+五子棋。由于时间精力有限，主要研究了BOT算法，而没有制作UI。实际玩法为字符棋盘+输入坐标，游戏体验并不很好。
+
 此Java版为Python移植版，完整版见Python。
 
 Python版本见 https://github.com/ddzbxh/CSE205_Project3
