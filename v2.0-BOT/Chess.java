@@ -1,4 +1,3 @@
-package allWorks;
 import java.util.*;
 
 public class Chess{
